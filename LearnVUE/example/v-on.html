@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../asserts/js/vue.js"></script>
+    <title>v-on 事件监听器</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        本场比赛得分:{{score}}
+        <br>
+        <button v-on:click="bonusPoint">加分</button>
+        <button v-on:click="deduction">减分</button>
+        <hr>
+        <input type="text" @keyup.13="onEnter" v-model="secondScore">
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                score: 1
+            },
+            methods: {
+                bonusPoint: function () {
+                    this.score++;
+                },
+                deduction: function () {
+                    this.score--;
+                },
+                onEnter: function () {
+                    this.score += parseInt(this.secondScore);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
