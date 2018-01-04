@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../asserts/js/vue.js"></script>
+    <title>v-bind</title>
+    <style>
+        .classA {
+            color: red;
+        }
+
+        .classB {
+            color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>v-bind</h1>
+    <hr>
+    <div id="app">
+        <img v-bind:src="imgSrc" width="200px">
+        <img :src="imgSrc" width="200px">
+        <p :class="className">绑定 class</p>
+        <p :class="{classA:isOK}">绑定 class 并判断</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgSrc: "http://7xjyw1.com1.z0.glb.clouddn.com/weixinpingtai.jpg",
+                className: "classA",
+                isOK: true,
+            }
+        })
+    </script>
+</body>
+
+</html>
